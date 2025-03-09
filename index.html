@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tartózkodó kérelem</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+            font-family: 'Playfair Display', serif;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            animation: slideIn 2s ease-out;
+        }
+
+        .verse-container {
+            margin: 10px 0;
+        }
+
+        .toggle-btn {
+            font-size: 16px;
+            padding: 8px 15px;
+            margin-top: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            width: 100%;
+        }
+
+        .toggle-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tartózkodó kérelem</h1>
+        
+        <div class="verse-container">
+            <p class="verse">A hatalmas szerelemnek <br>Megemésztő tüze bánt.<br>Te lehetsz írja sebemnek,<br>Gyönyörű kis tulipánt!</p>
+            <button class="toggle-btn" onclick="toggleVerse(this)">Elrejtés</button>
+        </div>
+
+        <div class="verse-container">
+            <p class="verse">Szemeid szép ragyogása<br>Eleven hajnali tűz,<br>Ajakid harmatozása<br>Sok ezer gondot elűz.</p>
+            <button class="toggle-btn" onclick="toggleVerse(this)">Elrejtés</button>
+        </div>
+
+        <div class="verse-container">
+            <p class="verse">Teljesítsd angyali szókkal,<br>Szeretőd amire kért:<br>Ezer ambrózia csókkal<br>Fizetek válaszodért.</p>
+            <button class="toggle-btn" onclick="toggleVerse(this)">Elrejtés</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleVerse(button) {
+            const verse = button.previousElementSibling;
+            if (verse.classList.contains("hidden")) {
+                verse.classList.remove("hidden");
+                button.textContent = "Elrejtés";
+            } else {
+                verse.classList.add("hidden");
+                button.textContent = "Mutatás";
+            }
+        }
+    </script>
+</body>
+</html>
+ 
